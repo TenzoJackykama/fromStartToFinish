@@ -3,22 +3,24 @@ package com.example.fromstarttofinish
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        GlobalScope.launch {
-            try {
-                val retrofit = ClientRetrofit.getServiceApi()
-                val posts = retrofit.retrivePosts()
-                Log.d("MainActivity", "$posts")
+        val viewModelFactory = ViewModelFactoryProvider(ClientRetrofit.getServiceApi())
+        viewModel = viewModelFactory.create(MainViewModel::class.java)
 
-            }catch (e: Exception){
-                Log.d("MainActivity", "$e")
-            }
+        viewModel.liveData.observe(this) {
+            Log.d("MainActivity", "${viewModel.liveData.value}")
         }
+
+        viewModel.retrievData()
+
     }
+
 }
