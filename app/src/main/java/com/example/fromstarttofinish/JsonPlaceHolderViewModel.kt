@@ -3,12 +3,12 @@ package com.example.fromstarttofinish
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.fromstarttofinish.networking.dto.FakeData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
-class MainViewModel(private val retrofit: DataApi): ViewModel() {
+class JsonPlaceHolderViewModel(private val retrofit: DataApi): ViewModel() {
 
     val _liveData: MutableLiveData<FakeData> = MutableLiveData<FakeData>()
     val liveData: MutableLiveData<FakeData>
