@@ -6,5 +6,5 @@ data class FakeDataItem(
     val title: String,
     val userId: Int
 )
-
-private fun FakeDataItem.getFakeDataItem(body : String) = FakeDataItem(this.title)
+// it shuld use this for mapping and separate networking data
+//private fun FakeDataItem.getFakeDataItem() = FakeDataItem(this.title)
