@@ -44,7 +44,9 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "${viewModel.liveData.value?.size}")
             dataList = (viewModel.liveData.value!! as MutableList<FakeData>)
             Log.d("MainActivity", "data list : ${dataList.toString()}")
+            viewModel.testSharedPreferencesReading()
         }
     }
+
 
 }

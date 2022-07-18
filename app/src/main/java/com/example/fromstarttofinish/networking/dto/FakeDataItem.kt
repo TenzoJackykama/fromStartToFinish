@@ -9,4 +9,4 @@ data class FakeDataItem(
     val userId: Int
 )
 //it shuld use this for mapping and separate networking data
-fun FakeDataItem.getFakeDataItem(): FakeDataApiModel = FakeDataApiModel(this.title)
+fun FakeDataItem.getFakeDataItem(): FakeDataApiModel = FakeDataApiModel(this.title, this.id)
