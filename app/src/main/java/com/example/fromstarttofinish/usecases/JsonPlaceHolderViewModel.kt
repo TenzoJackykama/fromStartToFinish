@@ -1,4 +1,4 @@
-package com.example.fromstarttofinish
+package com.example.fromstarttofinish.usecases
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

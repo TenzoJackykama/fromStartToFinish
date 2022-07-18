@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.fromstarttofinish.networking.ClientRetrofit
+import com.example.fromstarttofinish.usecases.JsonPlaceHolderViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: JsonPlaceHolderViewModel
+    lateinit var viewModel:JsonPlaceHolderViewModel
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,8 +3,7 @@ package com.example.fromstarttofinish
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.fromstarttofinish.networking.ClientRetrofit
-import com.example.fromstarttofinish.networking.dto.FakeData
-import com.example.fromstarttofinish.networking.dto.JsonDataApi
+import com.example.fromstarttofinish.usecases.JsonPlaceHolderViewModel
 
 class ViewModelFactoryProvider(val clientFactory: ClientRetrofit): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass : Class<T>) : T {
