@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        preferance = getSharedPreferences("app", Context.MODE_PRIVATE)
+        preferance = getPreferences(Context.MODE_PRIVATE)
         viewModelFactory = ViewModelFactoryProvider(ClientRetrofit(), preferance)
         viewModel = viewModelFactory.create(JsonPlaceHolderViewModel::class.java)
 
