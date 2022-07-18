@@ -14,5 +14,5 @@ class  ClientRetrofit{
     private val  JsonDataService = retrofit.create(JsonDataApi::class.java)
 
     // if it was use a model it shuld been map ex. .map{lambda}
-    suspend fun getServiceApi():List<FakeDataApiModel> = JsonDataService.retrivePosts().map { it.getFakeDataItem() }
+    suspend fun getServiceApi(): List<FakeDataApiModel> = JsonDataService.retrivePosts().map { it.getFakeDataItem() }
 }

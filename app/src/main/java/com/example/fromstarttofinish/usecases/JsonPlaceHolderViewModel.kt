@@ -25,6 +25,9 @@ class JsonPlaceHolderViewModel(private val retrofitReadyService: ClientRetrofit,
             try {
                 _liveData.value = retrofitReadyService.getServiceApi()
                 Log.d("MainViewModel", "live data : $liveData")
+                for (i in 0..liveData.value!!.size){
+                    Log.d("MainViewModel", "print : ${liveData.value!!.get(i)}")
+                }
             }catch (e: Exception){
                 Log.d("MainViewModel", "$e")
             }
