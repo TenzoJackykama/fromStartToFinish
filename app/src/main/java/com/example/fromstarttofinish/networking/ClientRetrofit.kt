@@ -1,6 +1,5 @@
 package com.example.fromstarttofinish.networking
 
-import com.example.fromstarttofinish.networking.dto.FakeDataItem
 import com.example.fromstarttofinish.networking.dto.JsonDataApi
 import com.example.fromstarttofinish.networking.dto.getFakeDataItem
 import com.example.fromstarttofinish.usecases.model.FakeDataApiModel
