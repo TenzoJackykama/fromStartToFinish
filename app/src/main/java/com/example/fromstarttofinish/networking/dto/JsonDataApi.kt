@@ -6,3 +6,4 @@ interface JsonDataApi {
     @GET("posts/")
     suspend fun retrivePosts(): FakeData
 }
+
