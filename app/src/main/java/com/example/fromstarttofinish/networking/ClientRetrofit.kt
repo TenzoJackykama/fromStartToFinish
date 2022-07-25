@@ -15,7 +15,7 @@ class AuthorizationInterceptor: Interceptor(){
 
         val newRequest = request.newBuilder().addHeader(
             "x-rapidapi-key",
-            "3d472334d6msh816f2eb42519627p1a70d7jsn765837fc42ec")
+            "vdtghftdh")
             .build()
         return chain.proceed(newRequest)
     }
