@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.fromstarttofinish.Shared.SharedPreferenceUtil
 import com.example.fromstarttofinish.networking.ClientRetrofit
 import com.example.fromstarttofinish.networking.dto.FakeData
+import com.example.fromstarttofinish.usecases.AppDatabase
 import com.example.fromstarttofinish.usecases.JsonPlaceHolderViewModel
 import com.example.fromstarttofinish.usecases.model.FakeDataApiModel
 import kotlinx.coroutines.flow.collect
@@ -19,13 +20,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel:JsonPlaceHolderViewModel
     lateinit var viewModelFactory: ViewModelFactoryProvider
     lateinit var preferance: SharedPreferences
+    lateinit var database:AppDatabase
     var dataList = mutableListOf<FakeDataApiModel>()
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         preferance = getPreferences(Context.MODE_PRIVATE)
-        viewModelFactory = ViewModelFactoryProvider(ClientRetrofit())
+        viewModelFactory = ViewModelFactoryProvider(ClientRetrofit(), preferance, database)
         viewModel = viewModelFactory.create(JsonPlaceHolderViewModel::class.java)
 
         observerJsonFakeApi()
@@ -43,16 +45,15 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity print", "data list print 1b1${dataList.get(i)}")
         }
     }
+
     fun observerJsonFakeApi(){
         lifecycleScope.launch {
         viewModel.apiCallResult.collect {
             Log.d("MainActivity", "${it}")
             Log.d("MainActivity", "${it.size}")
-            dataList = it as MutableList<FakeDataApiModel>
+            dataList = (it as MutableList<FakeDataApiModel>)
             Log.d("MainActivity", "data list : ${dataList.toString()}")
             }
         }
     }
-
-
 }

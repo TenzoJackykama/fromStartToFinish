@@ -19,14 +19,13 @@ class SharedPreferenceUtil(val listToSave:List<FakeDataApiModel>,  val preferenc
 
     }
 
-   fun testSharedPreferencesReading(){
-        val random = Random.nextInt(0, 100)
-        Log.d("MainViewModel", "random number gen : $random")
-            if (listToSave.isNotEmpty()) {
-                val randomFakeData = listToSave[random-1]
-                Log.d("SharedPreferenceUtil", "Random FakeDataItem: ${randomFakeData.toString()}")
+   fun testSharedPreferencesReading() {
+       val random = Random.nextInt(0, 100)
+       Log.d("MainViewModel", "random number gen : $random")
+       if (listToSave.isNotEmpty()) {
+           val randomFakeData = listToSave[random - 1]
+           Log.d("SharedPreferenceUtil", "Random FakeDataItem: ${randomFakeData.toString()}")
 
-            }
-        }
-    }
+       }
+   }
 }
