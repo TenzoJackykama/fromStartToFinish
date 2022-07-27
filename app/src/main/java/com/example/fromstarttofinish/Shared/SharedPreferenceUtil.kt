@@ -27,6 +27,5 @@ class SharedPreferenceUtil(val listToSave:List<FakeDataApiModel>,  val preferenc
                 Log.d("SharedPreferenceUtil", "Random FakeDataItem: ${randomFakeData.toString()}")
 
             }
-        }
-    }
+   }
 }

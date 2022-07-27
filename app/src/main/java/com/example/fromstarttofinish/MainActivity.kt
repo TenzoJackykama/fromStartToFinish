@@ -22,17 +22,19 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModelFactory: ViewModelFactoryProvider
     lateinit var preferance: SharedPreferences
     val authorizationInterceptor = AuthorizationInterceptor()
+    val logging = HttpLoggingInterceptor()
+    val clientHttp = OkHttpClient.Builder().addInterceptor(logging).addInterceptor(authorizationInterceptor).build()
+
     var dataList = mutableListOf<FakeDataApiModel>()
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         preferance = getPreferences(Context.MODE_PRIVATE)
-        viewModelFactory = ViewModelFactoryProvider(ClientRetrofit())
+        viewModelFactory = ViewModelFactoryProvider(ClientRetrofit(), preferance)
         viewModel = viewModelFactory.create(JsonPlaceHolderViewModel::class.java)
-        val logging = HttpLoggingInterceptor()
+
         logging.level = HttpLoggingInterceptor.Level.BASIC
-        val clientHttp = OkHttpClient.Builder().addInterceptor(logging).addInterceptor(authorizationInterceptor).build()
         observerJsonFakeApi()
 
         viewModel.retrievData()

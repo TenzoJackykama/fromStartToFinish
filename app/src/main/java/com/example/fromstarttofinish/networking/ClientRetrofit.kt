@@ -9,7 +9,7 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AuthorizationInterceptor: Interceptor(){
+class AuthorizationInterceptor: Interceptor{
     override fun intercept(chain:Interceptor.Chain):Response {
         val request = chain.request()
 
